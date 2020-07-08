@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import ArticlePreviewMaster from './components/ArticlePreviewMaster';
+
+import GlobalStyles from './styles/GlobalStyles';
 
 function App() {
+  const article = {
+    author: 'Michelle Appleton',
+    avatarPath: 'images/avatar-michelle.jpg',
+    title: 'Shift the overall look and feel by adding these wonderful touches to furniture in your home',
+    content: "Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I've got some simple tips to help you make any room feel complete.",
+    imagePath: 'images/drawers.jpg',
+    date: '28 Jun 2020',
+    iconPath: 'images/icon-share.svg',
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ArticlePreviewMaster 
+        author={article.author}
+        avatarPath={article.avatarPath}
+        title={article.title}
+        content={article.content}
+        imagePath={article.imagePath}
+        date={article.date}
+        iconPath={article.iconPath} />
+
+      <GlobalStyles />
+    </>
   );
 }
 
