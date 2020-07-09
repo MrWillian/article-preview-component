@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { 
   Container, ArticleImage, Info, Footer, FooterInfo, Avatar, NameAndDateContainer, ShareIcon 
 } from './styles';
+
+import { 
+  DialogFormContainer, PopUpContainer, FacebookButton, TwitterButton, PinterestButton, Dialog
+} from './PopupStyles';
 
 interface Props {
   author: string;
@@ -14,44 +18,67 @@ interface Props {
   iconPath: string;
 }
 
-const ArticlePreviewMaster: React.FC<Props> = ({
-  author,
-  avatarPath,
-  title,
-  content,
-  imagePath,
-  date,
-  iconPath,
-}) => {
+interface PopupProps {
+  isActive?: boolean;
+}
+
+const SharePopUp: React.FC<PopupProps> = ({ isActive }) => {
   return (
-    <Container>
+    <DialogFormContainer className={isActive ? 'active' : ''}>
+      <PopUpContainer>
+        <strong>Share</strong>
+        <FacebookButton />
+        <TwitterButton />
+        <PinterestButton />
+      </PopUpContainer>
+      <Dialog />
+    </DialogFormContainer>
+  );
+};
 
-      <ArticleImage src={imagePath} alt="article image" />
+const ArticlePreviewMaster: React.FC<Props> = ({
+  author, avatarPath, title, content, imagePath, date, iconPath
+}) => {
+  const [isPopupActive, setIsPopupActive] = useState(false);
 
-      <Info>
-        <h3>{title}</h3>
-        <p>{content}</p>
+  function shareButtonHandler() {
+    setIsPopupActive(!isPopupActive);
+  }
+  
+  return (
+    <>
+      <Container>
+        <ArticleImage src={imagePath} alt="article image" />
 
-        <Footer>
+        <Info>
+          <h3>{title}</h3>
+          <p>{content}</p>
 
-          <FooterInfo>
-            <Avatar src={avatarPath} />
+          <Footer>
+            <FooterInfo>
+              <Avatar src={avatarPath} />
 
-            <NameAndDateContainer>
-              <strong>{author}</strong>
-              <span>{date}</span>
-            </NameAndDateContainer>
-          </FooterInfo>
+              <NameAndDateContainer>
+                <strong>{author}</strong>
+                <span>{date}</span>
+              </NameAndDateContainer>
+            </FooterInfo>
 
-          <ShareIcon>
-            <img src={iconPath} alt="share icon" />
-          </ShareIcon>
+            <ShareIcon 
+              onClick={shareButtonHandler} 
+              className={isPopupActive ? 'active' : ''}>
+              
+              <img 
+                src={!isPopupActive ? 'images/icon-share.svg' : 'images/icon-share-active.svg'} 
+                alt="share icon" />
 
-        </Footer>
+            </ShareIcon>
 
-      </Info>
-      
-    </Container>
+          </Footer>
+          <SharePopUp isActive={isPopupActive} />
+        </Info>
+      </Container>
+    </>
   );
 }
 
