@@ -10,9 +10,9 @@ export const Container = styled.div`
   border-radius: 10px;
 
   background-color: var(--white);
-  -webkit-box-shadow: 3px 4px 18px -12px rgba(108,118,131,1);
-  -moz-box-shadow: 3px 4px 18px -12px rgba(108,118,131,1);
-  box-shadow: 3px 4px 18px -12px rgba(108,118,131,1);
+  -webkit-box-shadow: 3px 4px 18px -12px var(--desaturated-dark-blue);
+  -moz-box-shadow: 3px 4px 18px -12px var(--desaturated-dark-blue);
+  box-shadow: 3px 4px 18px -12px var(--desaturated-dark-blue);
 `;
 
 export const ArticleImage = styled.img`
@@ -29,6 +29,7 @@ export const Info = styled.div`
   justify-content: center;
 
   padding: 40px;
+  position: relative;
 
   > h3 {
     font-weight: bold;
@@ -48,6 +49,7 @@ export const Footer = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  /* position: relative; */
   margin-top: 20px;
 `;
 
@@ -75,17 +77,22 @@ export const NameAndDateContainer = styled.div`
   }
 `;
 
-export const ShareIcon = styled.div`
+export const ShareIcon = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 30px;
   height: 30px;
+
+  border: none;
+  outline: none;
   border-radius: 50%;
   background-color: var(--light-grayish-blue);
 
-  > img {
-    cursor: pointer;
+  cursor: pointer;
+
+  &.active {
+    background-color: var(--very-dark-grayish-blue);
   }
 `;
