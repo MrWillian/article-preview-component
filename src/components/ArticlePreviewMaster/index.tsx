@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 
+import SharePopup from '../SharePopup';
+
 import { 
   Container, ArticleImage, Info, Footer, FooterInfo, Avatar, NameAndDateContainer, ShareIcon 
 } from './styles';
-
-import { 
-  DialogFormContainer, PopUpContainer, FacebookButton, TwitterButton, PinterestButton, Dialog
-} from './PopupStyles';
 
 interface Props {
   author: string;
@@ -18,26 +16,8 @@ interface Props {
   iconPath: string;
 }
 
-interface PopupProps {
-  isActive?: boolean;
-}
-
-const SharePopUp: React.FC<PopupProps> = ({ isActive }) => {
-  return (
-    <DialogFormContainer className={isActive ? 'active' : ''}>
-      <PopUpContainer>
-        <strong>Share</strong>
-        <FacebookButton />
-        <TwitterButton />
-        <PinterestButton />
-      </PopUpContainer>
-      <Dialog />
-    </DialogFormContainer>
-  );
-};
-
 const ArticlePreviewMaster: React.FC<Props> = ({
-  author, avatarPath, title, content, imagePath, date, iconPath
+  author, avatarPath, title, content, imagePath, date
 }) => {
   const [isPopupActive, setIsPopupActive] = useState(false);
 
@@ -75,7 +55,7 @@ const ArticlePreviewMaster: React.FC<Props> = ({
             </ShareIcon>
 
           </Footer>
-          <SharePopUp isActive={isPopupActive} />
+          <SharePopup isActive={isPopupActive} />
         </Info>
       </Container>
     </>
