@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { 
   DialogFormContainer, PopUpContainer, FacebookButton, TwitterButton, PinterestButton, Dialog
