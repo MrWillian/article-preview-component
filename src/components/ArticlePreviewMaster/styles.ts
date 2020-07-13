@@ -111,6 +111,10 @@ export const ShareIcon = styled.button`
   cursor: pointer;
 
   &.active {
-    background-color: var(--very-dark-grayish-blue);
+    background-color: var(--desaturated-dark-blue);
+  }
+
+  @media (max-width: 375px) {
+    z-index: 3;
   }
 `;
