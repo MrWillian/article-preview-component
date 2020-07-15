@@ -13,9 +13,9 @@ const SharePopup: React.FC<Props> = ({ isActive }) => {
     <DialogFormContainer className={isActive ? 'active' : ''}>
       <PopUpContainer>
         <strong>Share</strong>
-        <FacebookButton />
-        <TwitterButton />
-        <PinterestButton />
+        <FacebookButton aria-label="facebook-button" />
+        <TwitterButton aria-label="twitter-button" />
+        <PinterestButton aria-label="pinterest-button" />
       </PopUpContainer>
       <Dialog />
     </DialogFormContainer>
