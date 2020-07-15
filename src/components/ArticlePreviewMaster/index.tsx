@@ -36,7 +36,7 @@ const ArticlePreviewMaster: React.FC<Props> = ({
 
           <Footer>
             <FooterInfo>
-              <Avatar src={avatarPath} />
+              <Avatar src={avatarPath} alt="avatar image" />
 
               <NameAndDateContainer>
                 <strong>{author}</strong>
@@ -46,7 +46,8 @@ const ArticlePreviewMaster: React.FC<Props> = ({
 
             <ShareIcon 
               onClick={shareButtonHandler} 
-              className={isPopupActive ? 'active' : ''}>
+              className={isPopupActive ? 'active' : ''}
+              aria-label="share-button">
               
               <img 
                 src={!isPopupActive ? 'images/icon-share.svg' : 'images/icon-share-active.svg'} 
