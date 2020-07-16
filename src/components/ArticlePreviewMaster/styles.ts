@@ -2,38 +2,32 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-
-  width: 50vw;
-  height: 40vh;
-  border-radius: 10px;
-
+ 
+  border-radius: 8px;
   background-color: var(--white);
   -webkit-box-shadow: 3px 4px 18px -12px var(--desaturated-dark-blue);
   -moz-box-shadow: 3px 4px 18px -12px var(--desaturated-dark-blue);
   box-shadow: 3px 4px 18px -12px var(--desaturated-dark-blue);
 
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     flex-direction: column;
-    width: 80vw;
-    height: 80vh;
+    max-width: 80%;
   }
 `;
 
 export const ArticleImage = styled.img`
-  width: 20vw;
-  height: 40vh;
+  max-width: 280px;
 
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 
-  @media (max-width: 375px) {
-    width: 80vw;
-    height: 30vh;
+  @media (max-width: 800px) {
+    max-width: 100%;
+    max-height: 220px;
 
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     border-bottom-left-radius: 0px;
   }
 `;
@@ -42,9 +36,10 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  padding: 40px;
   position: relative;
+  
+  max-width: 445px;
+  padding: 40px;
 
   > h3 {
     font-weight: bold;
@@ -57,8 +52,8 @@ export const Info = styled.div`
     color: var(--desaturated-dark-blue);
   }
 
-  @media (max-width: 375px) {
-    padding: 20px;
+  @media (max-width: 800px) {
+    padding: 20px 30px;
   }
 `;
 
@@ -67,8 +62,7 @@ export const Footer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  /* position: relative; */
+  
   margin-top: 20px;
 `;
 
@@ -114,7 +108,7 @@ export const ShareIcon = styled.button`
     background-color: var(--desaturated-dark-blue);
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     z-index: 3;
   }
 `;
