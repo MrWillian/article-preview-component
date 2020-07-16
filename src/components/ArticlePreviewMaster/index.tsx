@@ -56,7 +56,9 @@ const ArticlePreviewMaster: React.FC<Props> = ({
             </ShareIcon>
 
           </Footer>
+
           <SharePopup isActive={isPopupActive} />
+          
         </Info>
       </Container>
     </>
